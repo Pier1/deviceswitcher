@@ -1,0 +1,19 @@
+{
+  "name": "deviceswitcher",
+  "version": "0.9.0",
+  "description": "A bookmarklet for responsive testing on Pier1.com.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pier1/deviceswitcher.git"
+  },
+  "author": "Pier 1 Imports, Inc.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pier1/deviceswitcher/issues"
+  },
+  "homepage": "https://github.com/Pier1/deviceswitcher#readme"
+}
