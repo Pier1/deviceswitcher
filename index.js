@@ -31,6 +31,7 @@ padding: 0.5rem;
 }
 #device-switcher button.current {
 border-bottom: 2px solid white;
+pointer-events: none;
 }
 #device-switcher button:hover {
 color: rgba(0,0,0,0.9);
