@@ -4,7 +4,8 @@
   "description": "A bookmarklet for responsive testing on Pier1.com.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel index.js -o index.es5.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/Pier1/deviceswitcher/issues"
   },
-  "homepage": "https://github.com/Pier1/deviceswitcher#readme"
+  "homepage": "https://github.com/Pier1/deviceswitcher#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1"
+  }
 }
