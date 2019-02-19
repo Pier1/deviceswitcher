@@ -42,6 +42,10 @@ $(document).ready(() => {
   background: white;
   border-radius: 2px;
   }
+  #recentlyviewed_rr {
+  display: none;
+  visibility: hidden;
+  }
   </style>
   <aside id="device-switcher" style="position: fixed; left: 0; top: 0; z-index: 9999">
   <h2>View This Page On</h2>
@@ -141,6 +145,8 @@ $(document).ready(() => {
       mobileUri = (mobileUri || "").concat(newSearch);
     }
 
+    const initialDevice = $.cookie("deviceOverride");
+
     $("body").append('<iframe id="mobile-site" src="' + mobileUri + '" />');
     $("#mobile-site").css({
       border: "0px",
@@ -153,11 +159,17 @@ $(document).ready(() => {
     });
 
     const cw = window.frames["mobile-site"].contentWindow;
-    cw.document.addEventListener("DOMContentLoaded", () => {
+
+    $("#mobile-site").on("load", () => {
+      $.cookie("deviceOverride", initialDevice, { path: "/" });
       cw.$("body").append(
-        "<style>#rn_ConditionalChatContainer_1, #m-chat-bubble { display: none; visibility: hidden; }</style>"
+        `<style>
+          body { scroll-behavior: smooth; }
+          #rn_ConditionalChatContainer_1, #m-chat-bubble { display: none; visibility: hidden; }
+        </style>`
       );
-      console.dir(cw);
+
+      // $('#mobile-site').
     });
 
     $(window).on("scroll", () => {
