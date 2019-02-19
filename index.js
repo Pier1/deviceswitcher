@@ -138,7 +138,7 @@ $(document).ready(() => {
         newSearch +
         window.location.href.substring(i);
     } else {
-      mobileUri = mobileUri.concat(newSearch);
+      mobileUri = (mobileUri || "").concat(newSearch);
     }
 
     $("body").append('<iframe id="mobile-site" src="' + mobileUri + '" />');
