@@ -99,9 +99,11 @@ $(document).ready(() => {
   const launchSideBySide = () => {
     $("#rn_ConditionalChatContainer_1, #m-chat-bubble").hide();
     $("body > .main").css({
-      width: "1280px",
+      width: "calc(1280px - 0.5rem)",
       "transform-origin": "top left",
-      transition: "transform 0.6s ease-in-out"
+      transition: "transform 0.6s ease-in-out",
+      "margin-right": "0.5rem",
+      "box-shadow": "1px 0 6px rgba(0,0,0,0.15)"
     });
 
     let scaleRatio = parseFloat(($(window).width() - 375) / 1280).toFixed(4);
@@ -155,7 +157,8 @@ $(document).ready(() => {
       right: "0",
       bottom: "0",
       height: "100%",
-      width: "375px"
+      width: "375px",
+      "box-shadow": "1px 0 6px rgba(0,0,0,0.15)"
     });
 
     const cw = window.frames["mobile-site"].contentWindow;
@@ -164,12 +167,11 @@ $(document).ready(() => {
       $.cookie("deviceOverride", initialDevice, { path: "/" });
       cw.$("body").append(
         `<style>
-          body { scroll-behavior: smooth; }
+          /*:root { scroll-behavior: smooth; }*/
           #rn_ConditionalChatContainer_1, #m-chat-bubble { display: none; visibility: hidden; }
         </style>`
       );
-
-      // $('#mobile-site').
+      $("#device-switcher").toggleClass("hide");
     });
 
     $(window).on("scroll", () => {
